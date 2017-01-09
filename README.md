@@ -24,11 +24,11 @@ Guide to install the image is available on (french) :
 
 
 ### image :
-[http://downloads.overthebox.ovh/trunk/x86/64/openwrt-x86-64-embedded-ext4.img.gz](http://downloads.overthebox.ovh/trunk/x86/64/openwrt-x86-64-embedded-ext4.img.gz)
+[http://downloads.overthebox.ovh/stable/x86/64/openwrt-x86-64-combined-squashfs.img.gz](http://downloads.overthebox.ovh/stable/x86/64/openwrt-x86-64-combined-squashfs.img.gz)
 
 
 ### virtualbox image :
-[http://downloads.overthebox.ovh/trunk/x86/64/openwrt-x86-64-combined-ext4.vdi](http://downloads.overthebox.ovh/trunk/x86/64/openwrt-x86-64-combined-ext4.vdi)
+[http://downloads.overthebox.ovh/stable/x86/64/openwrt-x86-64-combined-squashfs.vdi](http://downloads.overthebox.ovh/stable/x86/64/openwrt-x86-64-combined-squashfs.vdi)
 
 
 ## install from source
