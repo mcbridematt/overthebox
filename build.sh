@@ -18,13 +18,14 @@ OTB_PORT=${OTB_PORT:-8000}
 OTB_REPO=${OTB_REPO:-http://$OTB_HOST:$OTB_PORT/$OTB_PATH}
 OTB_TARGET=${OTB_TARGET:-x86_64}
 OTB_TARGET_CONFIG="config-$OTB_TARGET"
+echo "Building for $OTB_TARGET"
 
 if [ ! -f "$OTB_TARGET_CONFIG" ]; then
 	echo "Target $OTB_TARGET not found !"
 	exit 1
 fi
 
-_get_repo source https://github.com/ovh/overthebox-lede "otb-17.09.19"
+_get_repo source "https://github.com/mcbridematt/overthebox-lede.git" "otb-17.09.19-traverse"
 _get_repo feeds/packages https://github.com/openwrt/packages "lede-17.01"
 _get_repo feeds/luci https://github.com/openwrt/luci "for-15.05"
 
