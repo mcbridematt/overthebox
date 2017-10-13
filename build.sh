@@ -2,6 +2,7 @@
 
 set -e
 
+umask 0022
 unset GREP_OPTIONS SED
 
 _get_repo() {
@@ -25,13 +26,13 @@ if [ ! -f "$OTB_TARGET_CONFIG" ]; then
 	exit 1
 fi
 
-_get_repo source "https://github.com/mcbridematt/overthebox-lede.git" "otb-17.09.19-traverse"
+_get_repo source https://github.com/mcbridematt/overthebox-lede/ "traverse-otb-master-17.10.13"
 _get_repo feeds/packages https://github.com/openwrt/packages "lede-17.01"
 _get_repo feeds/luci https://github.com/openwrt/luci "for-15.05"
 
 if [ -z "$OTB_FEED" ]; then
 	OTB_FEED=feeds/overthebox
-	_get_repo "$OTB_FEED" https://github.com/ovh/overthebox-feeds "${OTB_FEED_SRC:-master}"
+	_get_repo "$OTB_FEED" https://github.com/mcbridematt/overthebox-feeds "${OTB_FEED_SRC:-traverse-otb-feed-mainline}"
 fi
 
 if [ -n "$1" ] && [ -f "$OTB_FEED/$1/Makefile" ]; then
@@ -42,6 +43,10 @@ fi
 rm -rf source/bin source/files source/tmp
 cp -rf root source/files
 
+# Don't overwrite the default network config on the Traverse boards (yet)
+if [ "$OTB_TARGET" = "traverse-ls1043" ]; then
+	rm source/files/etc/board.d/02_network
+fi
 cat >> source/files/etc/banner <<EOF
 -----------------------------------------------------
  PACKAGE:     $OTB_DIST
@@ -80,4 +85,4 @@ scripts/feeds install -a -d y -f -p overthebox
 cp .config.keep .config
 
 make defconfig
-make "$@"
+make "$@" -j`nproc`
