@@ -1,0 +1,32 @@
+build-traverse-ls1043:
+    image: registry.gitlab.com/matt_traverse/debian-lede-ci-build:latest
+
+    script:
+        - OTB_TARGET=traverse-ls1043 ./build.sh -j`nproc`
+    artifacts:
+        paths:
+            - source/bin/targets/
+            - source/bin/packages/
+            - source/logs/
+        expire_in: 1 month
+        when: always
+    variables:
+       GIT_SUBMODULE_STRATEGY: recursive
+
+
+build-armvm:
+    image: registry.gitlab.com/matt_traverse/debian-lede-ci-build:latest
+
+    script:
+        - OTB_TARGET=arm64vm ./build.sh -j`nproc`
+    artifacts:
+        paths:
+            - source/bin/targets/
+            - source/bin/packages/
+            - source/logs/
+        expire_in: 1 month
+        when: always
+    variables:
+       GIT_SUBMODULE_STRATEGY: recursive
+
+
