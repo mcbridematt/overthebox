@@ -25,7 +25,7 @@ if [ ! -f "$OTB_TARGET_CONFIG" ]; then
 	exit 1
 fi
 
-_get_repo source https://github.com/mcbridematt/overthebox-lede "41dcb2dd32bc2906c244e1ae7ebdee78e2dbf376"
+_get_repo source https://github.com/mcbridematt/overthebox-lede "9174139106f3fa365a64736c934ad76e8ebad6ba"
 _get_repo feeds/packages https://github.com/openwrt/packages "0230af3b20274597d5258c8f425a6883d1fa3d2a"
 _get_repo feeds/luci https://github.com/openwrt/luci "for-15.05"
 
