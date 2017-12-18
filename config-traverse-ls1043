@@ -1,3 +1,4 @@
 CONFIG_TARGET_layerscape=y
 CONFIG_TARGET_layerscape_armv8_64b=y
 CONFIG_TARGET_layerscape_armv8_64b_DEVICE_traverse-five64=y
+CONFIG_PACKAGE_modemmanager=y
