@@ -3,7 +3,7 @@ build-traverse-ls1043:
 
     script:
         - rm -rf source feeds
-	- git clone --branch traverse-lte-integration https://github.com/mcbridematt/overthebox-feeds.git otbfeed
+        - git clone --branch traverse-lte-integration https://github.com/mcbridematt/overthebox-feeds.git otbfeed
         - OTB_TARGET=traverse-ls1043 OTB_FEED=`pwd`/otbfeed ./build.sh -j`nproc`
     artifacts:
         paths:
