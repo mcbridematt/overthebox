@@ -13,18 +13,18 @@ build-traverse-ls1043:
         when: always
 
 
-build-armvm:
-    image: registry.gitlab.com/matt_traverse/debian-lede-ci-build:latest
-
-    script:
-        - rm -rf source feeds
-        - OTB_TARGET=arm64vm ./build.sh -j`nproc`
-    artifacts:
-        paths:
-            - source/bin/targets/
-            - source/bin/packages/
-            - source/logs/
-        expire_in: 1 month
-        when: always
+#build-armvm:
+#    image: registry.gitlab.com/matt_traverse/debian-lede-ci-build:latest
+#
+#    script:
+#        - rm -rf source feeds
+#        - OTB_TARGET=arm64vm ./build.sh -j`nproc`
+#    artifacts:
+#        paths:
+#            - source/bin/targets/
+#            - source/bin/packages/
+#            - source/logs/
+#        expire_in: 1 month
+#        when: always
 
 
