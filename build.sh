@@ -26,8 +26,10 @@ if [ ! -f "$OTB_TARGET_CONFIG" ]; then
 fi
 
 _get_repo source https://github.com/mcbridematt/overthebox-lede "75be34217f882fcf3173dac04f8f0015762ae2bb"
-_get_repo feeds/packages https://github.com/openwrt/packages "0230af3b20274597d5258c8f425a6883d1fa3d2a"
+_get_repo feeds/packages https://github.com/openwrt/packages "26351ca6dbaeb1d782d3a0c3139aef660ad568c9"
 _get_repo feeds/luci https://github.com/openwrt/luci "for-15.05"
+_get_repo feeds/modemmanager https://aleksander0m@bitbucket.org/aleksander0m/modemmanager-openwrt.git \
+	8c553f2a1c090abf4da0f4e762ab6cec22d00557
 
 if [ -z "$OTB_FEED" ]; then
 	OTB_FEED=feeds/overthebox
@@ -56,6 +58,7 @@ cat > source/feeds.conf <<EOF
 src-link packages $(readlink -f feeds/packages)
 src-link luci $(readlink -f feeds/luci)
 src-link overthebox $(readlink -f "$OTB_FEED")
+src-link modemmanager $(readlink -f feeds/modemmanager)
 EOF
 
 cat "$OTB_TARGET_CONFIG" config -> source/.config <<EOF
@@ -77,6 +80,7 @@ cp .config .config.keep
 scripts/feeds clean
 scripts/feeds update -a
 scripts/feeds install -a -d y -f -p overthebox
+scripts/feeds install modemmanager
 cp .config.keep .config
 
 make defconfig
