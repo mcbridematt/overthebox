@@ -25,7 +25,7 @@ if [ ! -f "$OTB_TARGET_CONFIG" ]; then
 	exit 1
 fi
 
-_get_repo source https://github.com/mcbridematt/overthebox-lede "75be34217f882fcf3173dac04f8f0015762ae2bb"
+_get_repo source https://github.com/mcbridematt/overthebox-lede "59ea767ac6979492efb29e3f01b6d6c0647c06f6"
 _get_repo feeds/packages https://github.com/openwrt/packages "0230af3b20274597d5258c8f425a6883d1fa3d2a"
 _get_repo feeds/luci https://github.com/openwrt/luci "for-15.05"
 _get_repo feeds/modemmanager https://aleksander0m@bitbucket.org/aleksander0m/modemmanager-openwrt.git \
