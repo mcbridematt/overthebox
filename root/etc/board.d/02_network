@@ -13,8 +13,7 @@ case "$(board_name)" in
 		"7:lan" "8:lan" "9:lan" "10:lan" "11:lan" "12:lan" \
 		"17:lan" "18:lan" "13:wan13" "14:wan14"
 	;;
-"qemu-kvm-virtual-machine")
-"qemu-qemu-virtual-machine")
+"qemu-kvm-virtual-machine" | "qemu-qemu-virtual-machine")
 	intfidx=0
 	for intf in `ls /sys/class/net/ | grep eth`; do
 		if [[ "${intf}" == "eth0" ]]; then
